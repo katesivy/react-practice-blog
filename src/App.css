@@ -10,7 +10,7 @@
 }
 
 .navbar {
-  padding: 25px;
+  padding: 5px;
   border: solid rgb(49, 49, 49);
   background-color: gray;
   display: inline-block;
@@ -29,7 +29,13 @@
 }
 
 .homeLink {
-  margin-left: 15px;
+  margin-left: 30px;
+  padding: none;
+  font-style: italic;
+  font-size: x-large;
+  color: rgb(248, 205, 125);
+  border: none;
+  background-color: gray;
 }
 
 .createLink {
@@ -52,15 +58,16 @@
   padding: 50px;
 }
 
+.blogPost {
+  display: inline-flex;
+  margin: 10px;
+  border-bottom: solid gray 1px;
+  padding-bottom: 10px;
+}
+
 .posts-title {
   text-align: center;
   padding: 10px;
-}
-
-.post-title {
-  background-color: #6387ce;
-  padding: 10px;
-  border-radius: .5em;
 }
 
 .post-article {
@@ -140,11 +147,8 @@ textarea {
   height: 150px;
 }
 
-.blogPost {
+.post-container {
   display: inline-flex;
-  margin: 10px;
-  border-bottom: solid gray 1px;
-  padding-bottom: 10px;
 }
 
 .delete-post {
@@ -161,7 +165,15 @@ textarea {
   overflow: auto;
   box-shadow: 5px 5px 5px rgb(20, 30, 39);
   text-align: center;
-  
+}
+
+
+.title-container {
+  display: flex;
+  align-items: center;
+  background-color: #6387ce;
+  padding: 10px;
+  border-radius: .5em;
 }
 
 .updatebtn {
@@ -172,13 +184,16 @@ textarea {
   float: right;
 }
 
+.viewpostLinks {
+  margin-left: auto;
+}
+
 .deletebtn {
   background-color: rgb(207, 134, 134);
   border-radius: 5em;
   border: solid gray;
   padding: 5px;
   margin-left: 5px;
-  float: right;
 }
 
 .deleteYes, .deleteNo {

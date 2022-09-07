@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import {
-  MemoryRouter,
   Routes,
   Route,
   BrowserRouter,
@@ -15,12 +14,12 @@ import UpdatePost from './Components/UpdatePost';
 import DeletePost from './Components/DeletePost';
 import ShowScrollBtn from './Components/ShowScrollBtn';
 import NotFound from './Components/NotFound';
-import SubmissionMessage from './Components/SubmissionMessage';
 
 
 function App() {
   const [content, setContent] = useState({loading: true});
   const [blogData, setBlogData] = useState([]);
+  const fieldRef = useRef();
 
 
 useEffect(() => {
@@ -39,14 +38,16 @@ useEffect(() => {
       fetchData();
     }, []);
 
-  return (
+   return (
     <>
     <ShowScrollBtn />
     <BrowserRouter>
         <Routes>
             <Route path="/" element={<Navbar />} >
               <Route path="/" element={<Home />} >
-                  <Route path=":slug" element={<ViewPost blogData={blogData} />} />
+                  <Route path=":slug" element={<ViewPost blogData={blogData} 
+                   fieldRef={fieldRef}
+                   />} />
               </Route>
               <Route path="/create/*" element={<CreatePost />} >
               </Route>

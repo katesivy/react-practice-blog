@@ -4,7 +4,7 @@ import { Link, Outlet, useNavigate } from "react-router-dom";
 export default function Home() {
     const [content, setContent] = useState({loading: true});
     const [blogData, setBlogData] = useState([]);
-    const titleRef = useRef();
+    const fieldRef = useRef('');
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -29,7 +29,7 @@ export default function Home() {
     window.localStorage.setItem("storedBlogData", JSON.stringify(Object.values(dataArray)));
    
     function scrollToPost() {
-        titleRef.current.scrollIntoView()
+        fieldRef.current.scrollIntoView({});
     }
 
     return (
@@ -42,8 +42,8 @@ export default function Home() {
                         {dataArray.map((item, slug) => (
                             <div key={slug} className="blogPost">
                                 <div onClick={scrollToPost}>
-                                <Link to={`${slug}`}>
-                                    <h3 className="posts-title" ref={titleRef}>{item.title}</h3>
+                                <Link to={`${slug}`} ref={fieldRef}>
+                                    <h3 className="posts-title" >{item.title}</h3>
                                     <img className="home-img" src={`./Images/${item.image}`} alt="something blog-related"></img>
                                 </Link>
                                 </div>

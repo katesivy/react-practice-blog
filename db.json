@@ -1,8 +1,14 @@
+// export interface Root {
+//   userId: number
+//   id: number
+//   title: string
+//   completed: boolean
+// }
 {
   "posts": [
     {
-      "title": "Blog Post Title 1",
-      "article": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pellentesque sit amet porttitor eget dolor morbi non. Neque gravida in fermentum et sollicitudin. Eu facilisis sed odio morbi quis commodo odio aenean. Commodo quis imperdiet massa tincidunt nunc pulvinar sapien et ligula. Odio facilisis mauris sit amet massa vitae tortor condimentum. In hendrerit gravida rutrum quisque non tellus. Suspendisse in est ante in. Ut ornare lectus sit amet. Diam vel quam elementum pulvinar etiam non quam lacus.",
+      "title": "Blog Post 1",
+      "article": "content",
       "image": "pexels-scott-webb-1029604.jpeg",
       "id": "1"
     },

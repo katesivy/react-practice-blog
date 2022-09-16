@@ -6,6 +6,24 @@ export default function ViewPost(props) {
     const blogData = JSON.parse(localStorage.getItem("storedBlogData"));
     const selectedBlog = blogData[Number(slug)];
 
+    // useEffect(() => {
+    //     const fetchData = async () => {
+    //         navigate('/');
+    //        await fetch("http://localhost:3000/posts" + selectedBlog.id)
+    //         .then(res => res.json())
+    //         .then(result =>
+    //           setBlogData({
+    //             blogData: result
+    //           }),
+    //           setContent({
+    //             loading: false,
+    //           }),
+    //           )
+    //           .catch(console.log);
+    //         }
+    //     fetchData();
+    // }, []);
+
     return (
         <div className="view-post" >
             <div className="title-container">

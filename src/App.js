@@ -22,21 +22,7 @@ function App() {
   const fieldRef = useRef();
 
 
-useEffect(() => {
-  const fetchData = async () => {
-     await fetch("http://localhost:3000/posts")
-      .then(res => res.json())
-      .then(result =>
-        setBlogData({
-          blogData: result
-        }),
-        setContent({
-          loading: false,
-        })
-      ).catch((err) => console.log(err));
-    }
-      fetchData();
-    }, []);
+
 
    return (
     <>
@@ -45,16 +31,16 @@ useEffect(() => {
         <Routes>
             <Route path="/" element={<Navbar />} >
               <Route path="/" element={<Home />} >
-                  <Route path=":slug" element={<ViewPost blogData={blogData} 
+                  <Route path=":slug" element={<ViewPost  
                    fieldRef={fieldRef}
                    />} />
               </Route>
               <Route path="/create/*" element={<CreatePost />} >
               </Route>
               <Route path="/update" element={<UpdatePost /> } />
-                  <Route path="/update:slug/*" element={<UpdatePost blogData={blogData} />} />
-              <Route path="/delete" element={<DeletePost blogData={blogData}/> } />
-                  <Route path="/delete:slug/*" element={<DeletePost blogData={blogData} />} />
+                  <Route path="/update:slug/*" element={<UpdatePost  />} />
+              <Route path="/delete" element={<DeletePost /> } />
+                  <Route path="/delete:slug/*" element={<DeletePost  />} />
               <Route path="/about" element={<About /> } />
               <Route path="*" element={<NotFound />} />
             </Route>

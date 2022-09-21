@@ -3,21 +3,6 @@ import { Routes, Route } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 import SubmissionMessage from "./SubmissionMessage";
 
-
-
-// function add<Type>(arg: Type): Type {
-//     let a : Type = 2;
-//     if (typeof arg === 'string') {
-//         //
-//     }else if (typeof arg === 'number') {
-//         //
-//     }
-//     console.log(a);
-//     return arg;
-// }
-
-// console.log(identity<number>(2));
-
 interface PostInfo {
     title: string,
     article: string,

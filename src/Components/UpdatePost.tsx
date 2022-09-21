@@ -70,7 +70,6 @@ export default function UpdatePost( { blogarray } : AppProps) {
             navigate(`/update${slug}/submit`);
         })
     }
-    console.log('postinfo', postInfo)
 
     const postinfo : {
         title?: string,

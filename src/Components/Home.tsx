@@ -34,21 +34,10 @@ export default function Home( ) {
     }, []);
   
     let blogArray: BlogData["blogData"] = blogData !=undefined ? blogData : [];
-    // console.log('blogArray', typeof blogArray,  blogArray[0])
 
-    // let dataArray : DataArray = blogData ? (Object as any).values(blogData)[0] : [];
-    // let blogArray = Object.values(dataArray);
-    
-    // window.localStorage.setItem("storedBlogData", JSON.stringify(Object.values(dataArray)));
-   
     // function scrollToPost() {
     //     fieldRef.current.scrollIntoView({});
     // }
-
-    // const props: {} = {
-    //     blogarray: blogArray,
-    //   };
-    //   console.log('props in home', {...props})
 
     return (
         <>

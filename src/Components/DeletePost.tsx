@@ -7,6 +7,7 @@ interface PostInfo {
     article: string | undefined,
     image: string | undefined,
 }
+
 interface AppProps {
     blogarray: {
         title?: string | undefined,
@@ -22,13 +23,14 @@ interface SelectedBlog {
         id?: string | undefined,
         image?: string | undefined,
 }
+
 export default function DeletePost( { blogarray } : AppProps) {
     const [statusMessage, setStatusMessage] = useState<boolean | null>(null);
     const [action, setAction] = useState<string>('');
     const [route, setRoute] = useState<string>('');
     const { slug } = useParams();
     let numberSlug: number = Number(slug).valueOf()
-    const selectedBlog: SelectedBlog  = blogarray[numberSlug];    
+    const selectedBlog: SelectedBlog  = blogarray[numberSlug];
     const defaultPostInfo : PostInfo = {
         title: selectedBlog.title,
         article: selectedBlog.article,
@@ -37,7 +39,7 @@ export default function DeletePost( { blogarray } : AppProps) {
     const [postInfo, setPostInfo] = useState<PostInfo>(defaultPostInfo);
     const {title, article, image } = postInfo;
     const navigate = useNavigate();
-    const [id, setId] = useState(selectedBlog.id);
+    const [id, setId] = useState<string | undefined>(selectedBlog.id);
    
 
     const returnToHome = () => {
@@ -63,13 +65,6 @@ export default function DeletePost( { blogarray } : AppProps) {
         })
     }
 
-    const postinfo : {
-        title?: string,
-        article?: string,
-        image?: string,
-        id?: string, 
-    } = postInfo
-    
     const props : {
         statusMessage: boolean | null,
         action: string,

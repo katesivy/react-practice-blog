@@ -14,27 +14,16 @@ import UpdatePost from './Components/UpdatePost';
 import DeletePost from './Components/DeletePost';
 import ShowScrollBtn from './Components/ShowScrollBtn';
 import NotFound from './Components/NotFound';
-import { BlogArray, BlogData, Content } from "./interfaces";
+import { BlogData } from "./interfaces";
 import Button from '@mui/material/Button';
 
-// interface AppProps {
-//   props: {
-//       title?: string | undefined,
-//       article?: string | undefined,
-//       id?: string | undefined,
-//       image?: string | undefined,
-//   }[]
-// };
-
-
 function App() {
-  // const [content, setContent] = useState({loading: true});
   const [blogData, setBlogData] = useState<BlogData["blogData"] | undefined >([]);
+  // const [content, setContent] = useState({loading: true});
   // const fieldRef = useRef();
 
   useEffect(() => {
     const fetchData = async () => {
-        // navigate('/');
        await fetch("http://localhost:3000/posts")
         .then(res => res.json())
         .then(result =>
@@ -51,10 +40,6 @@ function App() {
 }, []);
 
 let blogArray: BlogData["blogData"] = blogData !=undefined ? blogData : [];
-// const props: {} = {
-//   blogarray: blogArray,
-// };
-// console.log('props in app', {...props})
 
    return (
     <>

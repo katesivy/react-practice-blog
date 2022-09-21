@@ -1,30 +1,17 @@
 import React, { useEffect, useState, useRef } from "react";
 import { Link, Outlet, useNavigate } from "react-router-dom";
+import { BlogArray, BlogData, Content } from "../interfaces";
+import ViewPost from './ViewPost';
 
-interface Content {
-    loading: boolean
-}
+// interface Props {
+//     props: {}[]
+// }
 
-interface BlogData {
-    blogData :{}[] | unknown
-    // title: string,
-    // article: string,
-    // id: string,
-    // image: string
-} 
-
-interface DataArray {
-    blogData: string[]
-}
-
-interface BlogArray {
-    blogArray: string[]
-}
-
-export default function Home() {
+export default function Home( ) {
+    // console.log('blogprops', blogProps)
     const [content, setContent] = useState<Content>({loading: true});
     // console.log('content', content)
-    const [blogData, setBlogData] = useState<BlogData>();
+    const [blogData, setBlogData] = useState<BlogData["blogData"] | undefined >([]);
     const fieldRef = useRef('');
     const navigate = useNavigate();
 
@@ -34,9 +21,9 @@ export default function Home() {
            await fetch("http://localhost:3000/posts")
             .then(res => res.json())
             .then(result =>
-              setBlogData({
-                blogData: result
-              }),
+              setBlogData(
+                result
+              ),
             //   setContent({
             //     loading: false
             //   }),
@@ -45,18 +32,23 @@ export default function Home() {
             }
         fetchData();
     }, []);
+  
+    let blogArray: BlogData["blogData"] = blogData !=undefined ? blogData : [];
+    // console.log('blogArray', typeof blogArray,  blogArray[0])
 
-    let dataArray : DataArray = blogData ? (Object as any).values(blogData)[0] : [];
-    let blogArray = Object.values(dataArray);
-    // let blogArray : BlogArray = dataArray ? (Object as any).values(dataArray) : [];
-    // console.log('dataarray', typeof dataArray, dataArray)
-    // console.log(typeof blogArray, blogArray[1])
-
+    // let dataArray : DataArray = blogData ? (Object as any).values(blogData)[0] : [];
+    // let blogArray = Object.values(dataArray);
+    
     // window.localStorage.setItem("storedBlogData", JSON.stringify(Object.values(dataArray)));
    
     // function scrollToPost() {
     //     fieldRef.current.scrollIntoView({});
     // }
+
+    // const props: {} = {
+    //     blogarray: blogArray,
+    //   };
+    //   console.log('props in home', {...props})
 
     return (
         <>
@@ -69,7 +61,8 @@ export default function Home() {
                             <div key={slug} className="blogPost">
                                 <div >
                                 {/* onClick={scrollToPost} */}
-                                <Link to={`${slug}`} >
+                                <Link key={slug} to={`${slug}`}  >
+                                    {/* <ViewPost props={[]} {...props}/> */}
                                 {/* ref={fieldRef} */}
                                    <h3 className="posts-title" >{item.title}</h3>
                                     <img className="home-img" src={`./Images/${item.image}`} alt="something blog-related"></img>

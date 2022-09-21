@@ -1,8 +1,8 @@
-// import React from "react";
-// import { 
-//     Link, Outlet
-//   } from "react-router-dom";
-// import Content from './Content.json';
+import React from "react";
+import { 
+    Link, Outlet
+  } from "react-router-dom";
+
 
 
 export default function About() {

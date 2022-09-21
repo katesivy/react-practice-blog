@@ -62,9 +62,8 @@ export default function Home( ) {
                                 <div >
                                 {/* onClick={scrollToPost} */}
                                 <Link key={slug} to={`${slug}`}  >
-                                    {/* <ViewPost props={[]} {...props}/> */}
-                                {/* ref={fieldRef} */}
-                                   <h3 className="posts-title" >{item.title}</h3>
+                                    {/* ref={fieldRef} */}
+                                    <h3 className="posts-title" >{item.title}</h3>
                                     <img className="home-img" src={`./Images/${item.image}`} alt="something blog-related"></img>
                                 </Link>
                                 </div>

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
-// import SubmissionMessage from "./SubmissionMessage";
+import SubmissionMessage from "./SubmissionMessage";
 
 
 
@@ -24,7 +24,6 @@ interface PostInfo {
     image: string,
 }
 export default function CreatePost()  {
-
     const DEFAULT_POSTINFO : PostInfo = {
         title: "",
         article: "",
@@ -70,6 +69,26 @@ export default function CreatePost()  {
         })
     }
 
+
+    const postinfo : {
+        title?: string,
+        article?: string,
+        image?: string,
+        id?: string, 
+    } = postInfo
+    
+    const props : {
+        statusMessage: boolean | null,
+        action: string,
+        route: string,
+        postInfo: {},
+    }  = {
+        statusMessage: statusMessage,
+        action: action,
+        route: route,
+        postInfo: postInfo,
+    }
+
     return (
         <>
             <div>
@@ -91,9 +110,9 @@ export default function CreatePost()  {
                 </label>
             <input type="submit" value="Submit" className="submit-button"/>
             </form>
-            {/* <Routes>
-                <Route path="submit" element={ <SubmissionMessage statusMessage={statusMessage} title={title} action={action} route={route}/> } />
-            </Routes> */}
+            <Routes>
+                <Route path="submit" element={ <SubmissionMessage props={props} />  } />
+            </Routes>
         </>
     )
 }

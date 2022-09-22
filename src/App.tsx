@@ -15,7 +15,8 @@ import DeletePost from './Components/DeletePost';
 import ShowScrollBtn from './Components/ShowScrollBtn';
 import NotFound from './Components/NotFound';
 import { BlogData } from "./interfaces";
-import Button from '@mui/material/Button';
+import { ThemeProvider } from '@mui/material/styles';
+import { ButtonTheme } from './ButtonTheme';
 
 function App() {
   const [blogData, setBlogData] = useState<BlogData["blogData"] | undefined >([]);
@@ -41,31 +42,28 @@ function App() {
 
 let blogArray: BlogData["blogData"] = blogData !=undefined ? blogData : [];
 
-   return (
+  return (
     <>
     <ShowScrollBtn />
-    <Button
-        variant="contained"
-        color="success"
-        onClick={() => console.log('clicked button')}
-    >Home Page Button</Button>
+    <ThemeProvider theme={ButtonTheme}>
     <BrowserRouter>
         <Routes>
             <Route path="/" element={<Navbar />} >
               <Route path="/" element={<Home />} >
-                  <Route path=":slug" element={<ViewPost blogarray={blogArray}  />} />
+                  <Route path=":slug" element={<ViewPost blogarray={blogArray} />} />
               </Route>
               <Route path="/create/*" element={<CreatePost />} >
               </Route>
               <Route path="/update" element={<UpdatePost blogarray={blogArray}/> } /> 
-                  <Route path="/update:slug/*" element={<UpdatePost blogarray={blogArray} />} />
+                  <Route path="/update:slug/*" element={<UpdatePost blogarray={blogArray}/>} />
               <Route path="/delete" element={<DeletePost blogarray={blogArray}/> } />
-                  <Route path="/delete:slug/*" element={<DeletePost blogarray={blogArray} />} />
+                  <Route path="/delete:slug/*" element={<DeletePost blogarray={blogArray}/>} />
               <Route path="/about" element={<About /> } />
               <Route path="*" element={<NotFound />} /> 
             </Route>
         </Routes>
     </BrowserRouter>
+    </ThemeProvider>
     </>
   );
 }

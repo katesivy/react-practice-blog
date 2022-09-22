@@ -1,16 +1,12 @@
 import React, { useEffect, useState, useRef } from "react";
 import { Link, Outlet, useNavigate } from "react-router-dom";
-import { BlogArray, BlogData, Content } from "../interfaces";
+import { BlogArray, BlogContextType, BlogData, Content } from "../interfaces";
 import ViewPost from './ViewPost';
-
-// interface Props {
-//     props: {}[]
-// }
+// import { BlogContext } from '../context';
 
 export default function Home( ) {
     // console.log('blogprops', blogProps)
     const [content, setContent] = useState<Content>({loading: true});
-    // console.log('content', content)
     const [blogData, setBlogData] = useState<BlogData["blogData"] | undefined >([]);
     const fieldRef = useRef('');
     const navigate = useNavigate();
@@ -23,24 +19,24 @@ export default function Home( ) {
             .then(result =>
               setBlogData(
                 result
-              ),
-            //   setContent({
-            //     loading: false
-            //   }),
-              )
+              ))
               .catch(console.log);
             }
         fetchData();
     }, []);
   
     let blogArray: BlogData["blogData"] = blogData !=undefined ? blogData : [];
-
+   
     // function scrollToPost() {
     //     fieldRef.current.scrollIntoView({});
     // }
 
-    return (
-        <>
+// const MyContext = React.createContext<BlogData["blogData"]>(blogArray);
+// MyContext.displayName = 'MyDisplayName';
+// const { BlogData } = React.useContext(BlogContext) as BlogContextType;
+
+return (
+    <>
             <div className="homepage">
                 <h1 className="home-title">Welcome to my blog!</h1>
             </div>
@@ -50,11 +46,13 @@ export default function Home( ) {
                             <div key={slug} className="blogPost">
                                 <div >
                                 {/* onClick={scrollToPost} */}
-                                <Link key={slug} to={`${slug}`}  >
+                                <Link key={slug} to={`${slug}`} >
                                     {/* ref={fieldRef} */}
+                        
                                     <h3 className="posts-title" >{item.title}</h3>
                                     <img className="home-img" src={`./Images/${item.image}`} alt="something blog-related"></img>
                                 </Link>
+                             
                                 </div>
                             </div> 
                         ))}

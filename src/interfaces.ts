@@ -25,3 +25,12 @@ export interface BlogArray {
     id: string,
     image: string
 }[]
+
+export type BlogContextType = {
+    blogData: {
+        title?: string,
+        article?: string,
+        id?: string,
+        image?: string
+    }[]
+  };

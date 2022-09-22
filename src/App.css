@@ -1,34 +1,36 @@
 #root {
   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  background-color: rgb(185, 185, 185);
+  background-color: #ffddd2;
 }
 
 .home-title {
   padding: 50px;
   text-align: center;
-  color: rgb(80, 80, 165);
+  color: #e29578;
+  font-weight: 900;
 }
 
 .navbar {
   padding: 5px;
   border: solid rgb(49, 49, 49);
-  background-color: gray;
+  background-color: #83c5be;
   display: inline-block;
   width: 100vw;
 }
 
-.navlink {
-  text-align: center;
-  padding: 10px;
-  border: solid rgb(207, 134, 134, .25);
-  border-radius: 5em;
-  color: white;
-  text-decoration: none;
-  background-color: rgba(207, 134, 134, .25);
-  display: inline-flex;
-}
+/* .navlink { */
+  /* text-align: center; */
+  /* padding: 10px; */
+  /* border: solid rgb(207, 134, 134, .25); */
+  /* border-radius: 5em; */
+  /* color: white; */
+  /* text-decoration: none; */
+  /* background-color: rgba(207, 134, 134, .25); */
+  /* background-color: #83c5be; */
+  /* display: inline-flex; */
+/* } */
 
-.homeLink {
+/* .homeLink {
   margin-left: 30px;
   padding: none;
   font-style: italic;
@@ -36,7 +38,7 @@
   color: rgb(248, 205, 125);
   border: none;
   background-color: gray;
-}
+} */
 
 .createLink {
   margin-right: 5px;
@@ -80,7 +82,7 @@
 
 .postslist {
   padding: 50px;
-  background-color: lightgray;
+  background-color: #edf6f9;
   width: 700px;
   margin: auto;
   border-radius: .5em;
@@ -171,7 +173,7 @@ textarea {
 .title-container {
   display: flex;
   align-items: center;
-  background-color: #6387ce;
+  background-color: #e29578;
   padding: 10px;
   border-radius: .5em;
 }

@@ -1,5 +1,6 @@
 import React, {useEffect, useState, useRef} from "react";
 import { useParams, Link, useNavigate } from 'react-router-dom';
+// import {ThemeContext, themes} from './theme-context';
 
 interface AppProps {
     blogarray: {
@@ -18,7 +19,6 @@ interface SelectedBlog {
 }
 
 export default function ViewPost( { blogarray } : AppProps) {
-    console.log('props in view', blogarray)
     const { slug } = useParams<"slug">();
     const navigate = useNavigate();
     let numberSlug: number = Number(slug).valueOf()

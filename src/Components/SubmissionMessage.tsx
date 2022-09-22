@@ -23,7 +23,6 @@ interface Styles {
 }
 
 export default function SubmissionMessage( { props } : MoreProps)  {
-console.log('submit props', props)
     const [message, setMessage] = useState<string | undefined>('');
     const [styles, setStyles] = useState<Styles>({display: "none"});
     const navigate = useNavigate(); 

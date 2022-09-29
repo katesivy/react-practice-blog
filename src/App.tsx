@@ -10,7 +10,7 @@ import CreatePost from './Components/CreatePost';
 import ViewPost from './Components/ViewPost';
 import Navbar from './Components/Navbar';
 import About from './Components/About';
-// import UpdatePost from './Components/UpdatePost';
+import UpdatePost from './Components/UpdatePost';
 import DeletePost from './Components/DeletePost';
 import ShowScrollBtn from './Components/ShowScrollBtn';
 import NotFound from './Components/NotFound';
@@ -28,19 +28,19 @@ function App() {
     <>
     <ShowScrollBtn />
     <ThemeProvider theme={ButtonTheme}>
-    {/* <BlogProvider> */}
+
     <BlogContext.Provider value={{ blogData, setBlogData }}>
       <BrowserRouter>
           <Routes>
               <Route path="/" element={<Navbar />} >
                   <Route path="/" element={<Home />} >
                       <Route path=":slug" element={
-                          <ViewPost  />
+                          <ViewPost  /> 
                         } 
                         />
                   </Route>
-                  {/* <Route path="/update" element={<UpdatePost blogarray={blogData}/> } /> 
-                      <Route path="/update:slug/*" element={<UpdatePost blogarray={blogData}/>} /> */}
+                  <Route path="/update" element={<UpdatePost /> } /> 
+                      <Route path="/update:slug/*" element={<UpdatePost />} />
                   <Route path="/delete" element={<DeletePost /> } />
                       <Route path="/delete:slug/*" element={<DeletePost />} />
                   <Route path="/create/*" element={<CreatePost />} >
@@ -50,20 +50,11 @@ function App() {
                 </Route>
           </Routes>
       </BrowserRouter>
-                      </BlogContext.Provider>
-    {/* </BlogProvider> */}
+    </BlogContext.Provider>
+
     </ThemeProvider>
     </>
   );
 }
 
 export default App;
-
-
-{/* <Route path="/" element={<Home />} >
-<Route path=":slug" element={
-  <BlogContext.Provider value={blogArray}>
-    <ViewPost blogarray={blogArray} />
-  </BlogContext.Provider>
-} 
-/> */}

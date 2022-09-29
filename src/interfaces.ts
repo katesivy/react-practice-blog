@@ -15,13 +15,11 @@ export interface BlogData {
     }[]
 }
 
-// export interface DataArray {
-//     // title?: string,
-//     // article?: string,
-//     // id?: string,
-//     // image?: string
-//     blogData: {}
-// }[]
+export interface PostInfo {
+    title: string | undefined,
+    article: string | undefined,
+    image: string | undefined,
+}
 
 export interface BlogArray {
     title?: string | undefined,
@@ -35,10 +33,6 @@ export interface SelectedBlog {
     article?: string | undefined,
     id?: string | undefined,
     image?: string | undefined,
-}
-
-type NumberSlug = {
-    n: number;
 }
 
 export type BlogContextType = {

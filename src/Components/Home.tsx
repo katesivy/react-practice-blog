@@ -15,7 +15,6 @@ const Home = ( { children }: any) => {
 
     useEffect(() => {
         const fetchData = async () => {
-            // navigate('/');
            await fetch("http://localhost:3000/posts")
             .then(res => res.json())
             .then(result =>
@@ -41,19 +40,11 @@ const Home = ( { children }: any) => {
                             <div key={slug} className="blogPost">
                                 <div >
                                 {/* onClick={scrollToPost} */}
-                                <BlogContext.Provider value={blogData}>
-                                    {children}
-                                    <Routes>
-                                        <Route>
-                                            <Route path=":slug" element={ <ViewPost /> } />
-                                        </Route>
-                                    </Routes>
                                 <Link key={slug} to={`${slug}`}  >
                                     {/* ref={fieldRef} */}
                                     <h3 className="posts-title" >{item.title}</h3>
                                     <img className="home-img" src={`./Images/${item.image}`} alt="something blog-related"></img>
                                 </Link>
-                                </BlogContext.Provider>
                                 </div>
                             </div> 
                         ))}

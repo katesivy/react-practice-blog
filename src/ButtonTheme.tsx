@@ -6,6 +6,9 @@ declare module '@mui/material/styles' {
             color: string;
             fontSize: string
       };
+      outlined: {
+            fontSize: string
+      }
     }
     // allow configuration using `createTheme`
     interface ThemeOptions {
@@ -13,6 +16,9 @@ declare module '@mui/material/styles' {
             color?: string;
             fontSize?: string
       },
+      outlined?: {
+            fontSize?: string
+      }
     }
   }
 
@@ -22,9 +28,13 @@ export const ButtonTheme =
             MuiButton: {
                 styleOverrides: {
                     contained: {
-                        fontSize: '0.875rem',
-                        color: '#006d77'
+                        fontSize: '.975rem',
+                        // color: '#e5989b'
+                        color: 'danger'
                     },
+                    outlined: {
+                        fontSize: '.875rem'
+                    }
                 },
             },
         },

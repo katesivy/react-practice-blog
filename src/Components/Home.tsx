@@ -1,19 +1,21 @@
-import React, { useEffect, useState, useRef } from "react";
-import { Link, Outlet, useNavigate } from "react-router-dom";
+import React, { useEffect, useState, useRef, createContext, useContext } from "react";
+import { Link, Outlet, useNavigate, Routes, Route } from "react-router-dom";
+import { BlogContext } from "../App";
 import { BlogArray, BlogContextType, BlogData, Content } from "../interfaces";
-import ViewPost from './ViewPost';
-// import { BlogContext } from '../context';
+import ViewPost from "./ViewPost";
 
-export default function Home( ) {
-    // console.log('blogprops', blogProps)
-    const [content, setContent] = useState<Content>({loading: true});
-    const [blogData, setBlogData] = useState<BlogData["blogData"] | undefined >([]);
-    const fieldRef = useRef('');
+
+const Home = ( { children }: any) => {
+    // const fieldRef = useRef('');
     const navigate = useNavigate();
+
+    const blogData = useContext(BlogContext) as BlogContextType;
+    console.log('blogdata', blogData)
+    const {setBlogData}  = useContext(BlogContext) as BlogContextType;
 
     useEffect(() => {
         const fetchData = async () => {
-            navigate('/');
+            // navigate('/');
            await fetch("http://localhost:3000/posts")
             .then(res => res.json())
             .then(result =>
@@ -24,35 +26,34 @@ export default function Home( ) {
             }
         fetchData();
     }, []);
-  
-    let blogArray: BlogData["blogData"] = blogData !=undefined ? blogData : [];
    
-    // function scrollToPost() {
-    //     fieldRef.current.scrollIntoView({});
-    // }
+    let homeBlogArray: BlogData["blogData"] = blogData.blogData !=undefined ? blogData.blogData : [];
+  
 
-// const MyContext = React.createContext<BlogData["blogData"]>(blogArray);
-// MyContext.displayName = 'MyDisplayName';
-// const { BlogData } = React.useContext(BlogContext) as BlogContextType;
-
-return (
+    return (
     <>
             <div className="homepage">
                 <h1 className="home-title">Welcome to my blog!</h1>
             </div>
             <div className="postslist">
                     <ul>
-                        {blogArray.map((item, slug) => (
+                        {homeBlogArray.map((item, slug) => (
                             <div key={slug} className="blogPost">
                                 <div >
                                 {/* onClick={scrollToPost} */}
-                                <Link key={slug} to={`${slug}`} >
+                                <BlogContext.Provider value={blogData}>
+                                    {children}
+                                    <Routes>
+                                        <Route>
+                                            <Route path=":slug" element={ <ViewPost /> } />
+                                        </Route>
+                                    </Routes>
+                                <Link key={slug} to={`${slug}`}  >
                                     {/* ref={fieldRef} */}
-                        
                                     <h3 className="posts-title" >{item.title}</h3>
                                     <img className="home-img" src={`./Images/${item.image}`} alt="something blog-related"></img>
                                 </Link>
-                             
+                                </BlogContext.Provider>
                                 </div>
                             </div> 
                         ))}
@@ -62,3 +63,5 @@ return (
         </>
     )
 }
+
+export default Home;

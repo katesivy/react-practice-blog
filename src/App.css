@@ -1,19 +1,19 @@
 #root {
   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  background-color: #ffddd2;
+  background-color: #ffb4a2;
 }
 
 .home-title {
   padding: 50px;
   text-align: center;
-  color: #e29578;
+  color: #6d6875;
   font-weight: 900;
 }
 
 .navbar {
   padding: 5px;
-  border: solid rgb(49, 49, 49);
-  background-color: #83c5be;
+  border: solid #b5838d;
+  background-color: #6d6875;
   display: inline-block;
   width: 100vw;
 }
@@ -40,17 +40,17 @@
   background-color: gray;
 } */
 
-.createLink {
+/* .createLink {
   margin-right: 5px;
   margin-top: 25px;
   float: right;
-}
+} */
 
-.aboutLink {
+/* .aboutLink {
   margin-right: 60px;
   margin-top: 25px;
   float: right;
-}
+} */
 
 .view-post {
   padding: 100px;
@@ -82,7 +82,7 @@
 
 .postslist {
   padding: 50px;
-  background-color: #edf6f9;
+  background-color: #ffcdb2;
   width: 700px;
   margin: auto;
   border-radius: .5em;
@@ -216,7 +216,7 @@ textarea {
   z-index: 20;
 }
 .icon-style{
-  background-color: #551B54;
+  background-color: #006d77;
   border: 2px solid #fff;
   border-radius: 50%;
   height: 50px;
@@ -229,8 +229,8 @@ textarea {
 .icon-style:hover{
   animation: none;
   background: #fff;
-  color: #551B54;
-  border: 2px solid #551B54;
+  color: #006d77;
+  border: 2px solid #006d77;
 }
 @keyframes movebtn {
   0%{

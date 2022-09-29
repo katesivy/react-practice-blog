@@ -35,6 +35,12 @@
       "article": "test content",
       "image": "partypic.jpg",
       "id": "r9L4ium"
+    },
+    {
+      "title": "New Test Post 1",
+      "article": "content",
+      "image": "partypic.jpg",
+      "id": "Q1NYVSa"
     }
   ]
 }
